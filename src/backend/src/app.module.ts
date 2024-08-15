@@ -11,7 +11,7 @@ import { FilesController } from './files/files.controller';
 @Module({
   imports: [
     MongooseModule.forRoot(
-      'mongodb+srv://vladfocuta:Parolanoua123@cluster0.pxuc2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),
+      '****'),
     SignupModule,
     MulterModule.register({
       dest: './uploads'
