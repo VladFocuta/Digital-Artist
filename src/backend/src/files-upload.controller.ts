@@ -20,18 +20,3 @@ export class FilesUploadController {
         return { message: 'File uploaded successfully!' };
     }
 
-    @Post('upload/:userId')
-    @UseInterceptors(FileInterceptor('image', {
-        storage: diskStorage({
-            destination: './dist/uploads',
-            filename: (req, file, callback) => {
-                const uniqueSuffix = Date.now() + '-' + req.body.userId + extname(file.originalname) + '.png';
-                callback(null, uniqueSuffix);
-            },
-        }),
-    }))
-    uploadImages(@UploadedFile() file: Express.Multer.File) {
-        console.log(file);
-        return { message: 'File uploaded successfully!' };
-    }
-}
